@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.pedroPathing.pathGeneration;
 
+import org.firstinspires.ftc.teamcode.pedroPathing.localization.Pose;
+
 import java.util.ArrayList;
 
 /**
@@ -38,6 +40,9 @@ public class BezierLine extends BezierCurve {
         UNIT_TO_TIME = 1 / length;
         endTangent = MathFunctions.normalizeVector(getDerivative(1));
         super.initializeDashboardDrawingPoints();
+    }
+
+    public BezierLine(Pose startPose, Pose shootPose) {
     }
 
     /**
