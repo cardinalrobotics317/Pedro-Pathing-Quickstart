@@ -11,9 +11,9 @@ import com.qualcomm.robotcore.hardware.IMU;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 
-@TeleOp(name = "ASMecanumFO", group = "Robot")
+@TeleOp(name = "BUZZ27", group = "Robot")
 
-public class ASMecanumFO extends OpMode {
+public class BUZZ27 extends OpMode {
     // This declares the four motors needed
     //DECLARE WHEELS
     DcMotor frontLeftDrive;
@@ -22,23 +22,23 @@ public class ASMecanumFO extends OpMode {
     DcMotor backRightDrive;
 
     //DECLARE INTAKE
-    private DcMotor intake = null;
+    //private DcMotor intake = null;
 
     //DECLARE OUTTAKE
-    private DcMotor outtake = null;
+    //private DcMotor outtake = null;
 
     //DELARE IMU
     IMU imu;
 
     @Override
     public void init() {
-        frontLeftDrive = hardwareMap.get(DcMotor.class, "leftdrivefront");
-        frontRightDrive = hardwareMap.get(DcMotor.class, "rightdrivefront");
-        backLeftDrive = hardwareMap.get(DcMotor.class, "leftdriveback");
-        backRightDrive = hardwareMap.get(DcMotor.class, "rightdriveback");
+        frontLeftDrive = hardwareMap.get(DcMotor.class, "LF");
+        frontRightDrive = hardwareMap.get(DcMotor.class, "RF");
+        backLeftDrive = hardwareMap.get(DcMotor.class, "LB");
+        backRightDrive = hardwareMap.get(DcMotor.class, "RB");
 
-        intake = hardwareMap.get(DcMotor.class, "Eater");
-        outtake = hardwareMap.get(DcMotor.class, "Pooper");
+        //intake = hardwareMap.get(DcMotor.class, "Eater");
+        //outtake = hardwareMap.get(DcMotor.class, "Pooper");
 
         // We set the left motors in reverse which is needed for drive trains where the left
         // motors are opposite to the right ones.
@@ -47,8 +47,8 @@ public class ASMecanumFO extends OpMode {
         backLeftDrive.setDirection(DcMotor.Direction.FORWARD);
         backRightDrive.setDirection(DcMotor.Direction.REVERSE);
 
-        intake.setDirection(DcMotor.Direction.REVERSE);
-        outtake.setDirection(DcMotor.Direction.REVERSE);
+        //intake.setDirection(DcMotor.Direction.REVERSE);
+        //outtake.setDirection(DcMotor.Direction.REVERSE);
 
         // This uses RUN_USING_ENCODER to be more accurate.   If you don't have the encoder
         // wires, you should remove these
@@ -137,7 +137,7 @@ public class ASMecanumFO extends OpMode {
         maxPower = Math.max(maxPower, Math.abs(backRightPower));
         maxPower = Math.max(maxPower, Math.abs(backLeftPower));
 
-        if (gamepad2.left_bumper) { // or any other button
+        /*if (gamepad2.left_bumper) { // or any other button
             intake.setPower(1.0);
         } else {
             intake.setPower(0.0);
@@ -147,22 +147,17 @@ public class ASMecanumFO extends OpMode {
             intake.setPower(-5.0);
         } else {
             intake.setPower(0.0);
-        }
+        */}
 
-        /*
-        if (gamepad2.a) {
-            intake.setDirection(DcMotor.Direction.FORWARD);
-        } else {
-            intake.setDirection(DcMotor.Direction.REVERSE);
-        }
-        */
 
+    /*
         if (gamepad2.right_bumper) { // or any other button
             outtake.setPower(0.9);
         } else {
             outtake.setPower(0.0);
         }
 
+     */
 
 
         // We multiply by maxSpeed so that it can be set lower for outreaches
